@@ -11,6 +11,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      models.Theme.belongsToMany(models.Actualite, {through: 'Actu_themes'});
     }
   }
   Theme.init({

@@ -11,6 +11,12 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      models.Actualite.belongsTo(models.User, {
+        foreignKey: {
+          allowNull: false
+        }
+      })
+      models.Actualite.belongsToMany(models.Theme, {through: 'Actu_themes'});
     }
   }
   Actualite.init({
