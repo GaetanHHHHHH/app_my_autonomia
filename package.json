@@ -1,0 +1,29 @@
+{
+  "name": "my-autonomia",
+  "version": "1.0.0",
+  "description": "Création d'une application web d'information quotidienne sur le handicap",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GaetanHHHHHH/app_my_autonomia.git"
+  },
+  "keywords": [
+    "PWA",
+    "API",
+    "REST",
+    "HTTP"
+  ],
+  "author": "Gaëtan Herinne",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GaetanHHHHHH/app_my_autonomia/issues"
+  },
+  "homepage": "https://github.com/GaetanHHHHHH/app_my_autonomia#readme",
+  "dependencies": {
+    "express": "^4.18.1"
+  }
+}
