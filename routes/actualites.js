@@ -59,43 +59,42 @@ router.post('/',(req, res) => {
         }   
     }  
 );
-// {"id_users":1, 
-// "date_publication":"2022-05-20", 
-// "titre":"Un premier article sur la DB", 
-// "titre2":"Espérons qu'il s'ajoute correctement!",
-// "texte":"De grandes aventures nous attendent encore."
-// }
 
 
-// GET /themes/id : Renvoie les informations sur un thème spécifié par son id
-router.get('/:id_themes',(req,res)=>{
-    id_themes = req.params.id_themes;
-    console.log(id_themes)
-    theme.findByPk(id_themes)
-        .then( tms => 
-            res.json(tms)
+// GET /actualites/id : Renvoie les informations sur un thème spécifié par son id
+router.get('/:id_actualites',(req,res)=>{
+    id_actualites = req.params.id_actualites;
+    actualite.findByPk(id_actualites)
+        .then(act => 
+            res.json(act)
         )
         .catch(err => res.status(500).json({message: err}));
 });
 
 
 // PUT /themes/id : Modifie le thème dont l'id est spécifié
-router.put('/:id_themes',(req,res)=>{
-    id_themes = req.params.id_themes;
+router.put('/:id_actualites',(req,res)=>{
+    id_actualites = req.params.id_actualites;
     try {
         var obj = JSON.parse(req.body.data).value;
     } catch {
         var obj = req.body;
     }
-    let {nom_theme} = obj;
+    let {id_users, date_publication, titre, titre2, texte, vignette, lien} = obj;
     console.log(req.body);
     // update in the table
-    theme.update({
-        nom_theme
+    actualite.update({
+        id_users,
+        date_publication,
+        titre,
+        titre2,
+        texte,
+        vignette,
+        lien
         },
-        {where: {id: id_themes}}
+        {where: {id: id_actualites}}
     )
-        .then(tms =>{
+        .then(act => {
             res.setHeader('Content-Type', 'application/json');
             res.end(JSON.stringify({message: "Theme modified"}));
         })
@@ -105,22 +104,16 @@ router.put('/:id_themes',(req,res)=>{
 
 
 // DELETE /themes/id : Supprime le thème dont l'id est spécifié
-router.delete('/:id_themes',(req,res)=>{
-    id_themes = req.params.id_themes;
-    // Delete all links
-    // link.destroy({
-    //     where: {
-    //         id_themes: id_themes
-    //     }
-    // })
-    theme.findByPk(id_themes) //Supprimer cette ligne lors de la màj des links
+router.delete('/:id_actualites',(req,res)=>{
+    id_actualites = req.params.id_actualites;
+    actualite.findByPk(id_actualites) //Supprimer cette ligne lors de la màj des links
     .then(
         // Delete theme
-        theme.destroy({
-            where: {id: id_themes}
+        actualite.destroy({
+            where: {id: id_actualites}
         }).then( data =>{
             res.setHeader('Content-Type', 'application/json');
-            res.end(JSON.stringify({message: "Theme deleted"}));
+            res.end(JSON.stringify({message: "Actualite deleted"}));
         }).catch(err => {
             res.status(500).json({message: err.message})
         })
