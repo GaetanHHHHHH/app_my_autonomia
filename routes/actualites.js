@@ -30,7 +30,7 @@ router.get('/', (req, res) =>
 
 
 // POST /actualites : Ajoute une nouvelle actualité
-router.post('/add',(req, res) => {
+router.post('/',(req, res) => {
     let {id_users, date_publication, titre, titre2, texte} = req.body;
     let errors = [];
     // validate fields
@@ -59,6 +59,12 @@ router.post('/add',(req, res) => {
         }   
     }  
 );
+// {"id_users":1, 
+// "date_publication":"2022-05-20", 
+// "titre":"Un premier article sur la DB", 
+// "titre2":"Espérons qu'il s'ajoute correctement!",
+// "texte":"De grandes aventures nous attendent encore."
+// }
 
 
 // GET /themes/id : Renvoie les informations sur un thème spécifié par son id

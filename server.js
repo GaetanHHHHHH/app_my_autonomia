@@ -22,7 +22,7 @@ server.get('/', (req, res) => res.render('index', { layout: 'landing' }));
     // All routes
 server.use('/themes', require('./routes/themes'));
 server.use('/actualites', require('./routes/actualites'));
-//server.use('/users', require('./routes/users'));
+server.use('/users', require('./routes/users'));
 
 // Launch server
 server.listen(8080, function() {
