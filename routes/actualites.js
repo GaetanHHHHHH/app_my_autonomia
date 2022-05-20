@@ -8,7 +8,7 @@ var actualite = models.Actualite;       // the model keyed by its name
 const link = sequelize.define('Actu_themes', {}, {freezeTableName: true}, { timestamps: false });
 
 
-// GET /themes : Renvoie une liste de tous les thèmes et de leurs données
+// GET /actualites : Renvoie une liste de toutes les actualités contenant leur id, créateur, date de publication et titre
 router.get('/', (req, res) =>
     actualite.findAll()
         .then(actus => {
@@ -29,24 +29,31 @@ router.get('/', (req, res) =>
 );
 
 
-// POST /themes : Ajoute un nouveau thème
+// POST /actualites : Ajoute une nouvelle actualité
 router.post('/add',(req, res) => {
-    let {nom_theme} = req.body;
+    let {id_users, date_publication, titre, titre2, texte} = req.body;
     let errors = [];
     // validate fields
-    if(!nom_theme){errors.push({text: "no name"})};
+    if(!id_users){errors.push({text: "No user's id"})};
+    if(!date_publication){errors.push({text: "No publication date"})};
+    if(!titre){errors.push({text: "No title"})};
+    if(!titre2){errors.push({text: "No second title"})};
+    if(!texte){errors.push({text: "No text"})};
     //check for errors
     if(errors.length != 0){
         res.send(JSON.stringify(errors))
     } else {
         //insert into table
-        theme.create({
-            nom_theme
+        actualite.create({
+            id_users,
+            date_publication,
+            titre,
+            titre2,
+            texte
         })
-            // .then(agencies => res.redirect('/agencies')) 
-            .then(theme =>{
+            .then(actu =>{
                 res.setHeader('Content-Type', 'application/json');
-                res.send(JSON.stringify({message: "Theme added"}));
+                res.send(JSON.stringify({message: "Actualite added"}));
             })
             .catch(err => res.status(500).json({message: err}))
         }   

@@ -41,7 +41,6 @@ router.post('/add',(req, res) => {
         theme.create({
             nom_theme
         })
-            // .then(agencies => res.redirect('/agencies')) 
             .then(theme =>{
                 res.setHeader('Content-Type', 'application/json');
                 res.send(JSON.stringify({message: "Theme added"}));
