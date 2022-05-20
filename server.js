@@ -21,7 +21,7 @@ server.use(bodyParser.json());
 server.get('/', (req, res) => res.render('index', { layout: 'landing' }));
     // All routes
 server.use('/themes', require('./routes/themes'));
-//server.use('/actualites', require('./routes/actualites'));
+server.use('/actualites', require('./routes/actualites'));
 //server.use('/users', require('./routes/users'));
 
 // Launch server

@@ -12,9 +12,8 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       models.Actualite.belongsTo(models.User, {
-        foreignKey: {
-          allowNull: false
-        }
+        foreignKey: 'id_users', 
+        allowNull: false
       })
       models.Actualite.belongsToMany(models.Theme, {through: 'Actu_themes'});
     }
