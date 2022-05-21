@@ -27,5 +27,5 @@ server.use('/actu_themes', require('./routes/actu_themes'));
 
 // Launch server
 server.listen(8080, function() {
-    console.log('Serveur en ligne...');
+    console.log('Serveur en ligne... Small change');
 });
