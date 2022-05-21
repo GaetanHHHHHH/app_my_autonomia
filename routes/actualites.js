@@ -72,7 +72,7 @@ router.get('/:id_actualites',(req,res)=>{
 });
 
 
-// PUT /themes/id : Modifie le thème dont l'id est spécifié
+// PUT /actualites/id : Modifie l'actualité dont l'id est spécifié
 router.put('/:id_actualites',(req,res)=>{
     id_actualites = req.params.id_actualites;
     try {
@@ -103,12 +103,12 @@ router.put('/:id_actualites',(req,res)=>{
 );
 
 
-// DELETE /themes/id : Supprime le thème dont l'id est spécifié
+// DELETE /actualites/id : Supprime l'actualité dont l'id est spécifié
 router.delete('/:id_actualites',(req,res)=>{
     id_actualites = req.params.id_actualites;
     actualite.findByPk(id_actualites) //Supprimer cette ligne lors de la màj des links
     .then(
-        // Delete theme
+        // Delete actualite
         actualite.destroy({
             where: {id: id_actualites}
         }).then( data =>{
