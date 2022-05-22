@@ -1,11 +1,10 @@
 export class Actualite {
-
-    constructor(public titre: string, 
-                public titre2: string, 
-                public texte: string, 
-                public date_publication: Date, 
-                public id_users: number, 
-                public vignette: string, 
-                public likes: number){}
-
+    titre!: string;
+    titre2!: string;
+    texte!: string;
+    date_publication!: Date;
+    id_users!: number;
+    vignette!: string; 
+    lien?: string;
+    likes!: number;
 }

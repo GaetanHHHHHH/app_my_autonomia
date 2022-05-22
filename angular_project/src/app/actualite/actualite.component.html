@@ -4,9 +4,12 @@
     <img [src] = "actualite.vignette" [alt] = "actualite.titre">
     <p>Mis en ligne le : {{ actualite.date_publication }} par l'utilisateur numéro : {{actualite.id_users}}</p>
     <p>{{ actualite.texte }}</p>
+    <p *ngIf="actualite.lien">
+        <a href="{{actualite.lien}}">Informations supplémentaires</a>
+         </p>
     <p>
         <button (click)="onLike()"> {{ textButton }} </button>
-        {{actualite.likes}}
+        <span [ngStyle]="{ color: 'rgb(0,' + actualite.likes + ', 0)'}"> {{actualite.likes}} </span>
     </p>
 </div>
 
