@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Actualite } from '../models/actualite.model';
 
 @Component({
   selector: 'app-actualite',
@@ -6,17 +7,22 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./actualite.component.scss']
 })
 export class ActualiteComponent implements OnInit {
-  titre!: string;
-  titre2!: string;
-  texte!: string;
-  date_publication!: Date;
-  id_users!: number;
+  @Input() actualite!: Actualite;
+  textButton!: string;
 
   ngOnInit() {
-    this.titre = "Un premier article modifié sur la DB";
-    this.titre2 = "Espérons qu'il s'ajoute correctement!";
-    this.texte = "De grandes aventures nous attendent encore.";
-    this.date_publication = new Date();
-    this.id_users = 1;
+    this.textButton = "Enregistrer cette actualité"
   }
+
+  onLike() {
+    if (this.textButton === 'Enregistrer cette actualité') {
+      this.actualite.likes++;
+      this.textButton = 'Ne plus enregistrer cette actualité';
+    } else {
+      this.actualite.likes--;
+      this.textButton = 'Enregistrer cette actualité';
+    }
+  }
+
+
 }
