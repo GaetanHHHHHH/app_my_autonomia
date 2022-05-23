@@ -20,10 +20,10 @@ server.use(bodyParser.json());
     // Index route
 server.get('/', (req, res) => res.render('index', { layout: 'landing' }));
     // All routes
-server.use('/themes', require('./api/routes/themes'));
-server.use('/actualites', require('./api/routes/actualites'));
-server.use('/users', require('./api/routes/users'));
-server.use('/actu_themes', require('./api/routes/actu_themes'));
+server.use('/api/themes', require('./api/routes/themes'));
+server.use('/api/actualites', require('./api/routes/actualites'));
+server.use('/api/users', require('./api/routes/users'));
+server.use('/api/actu_themes', require('./api/routes/actu_themes'));
 
 // Launch server
 server.listen(8080, function() {
