@@ -1,7 +1,7 @@
 // Imports
 var express = require('express');
 var bodyParser = require('body-parser');
-const { sequelize } = require('./models');
+const { sequelize } = require('./api/models');
 const path = require('path');
 
 // Instantiate server 
