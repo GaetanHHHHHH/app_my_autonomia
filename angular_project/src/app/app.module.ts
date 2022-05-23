@@ -5,16 +5,20 @@ import { AppComponent } from './app.component';
 import { ActualiteComponent } from './actualite/actualite.component';
 import { ActualitesListComponent } from './actualites-list/actualites-list.component';
 import { HeaderComponent } from './header/header.component';
+import { AppRoutingModule } from './app-routing.module';
+import { LandingPageComponent } from './landing-page/landing-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ActualiteComponent,
     ActualitesListComponent,
-    HeaderComponent
+    HeaderComponent,
+    LandingPageComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

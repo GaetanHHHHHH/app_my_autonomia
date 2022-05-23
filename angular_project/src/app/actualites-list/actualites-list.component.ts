@@ -14,7 +14,7 @@ export class ActualitesListComponent implements OnInit {
   constructor(private actualitesService: ActualitesService) { }
 
   ngOnInit(): void {
-    this.actualites = this.actualitesService.actualites;
+    this.actualites = this.actualitesService.getAllActualites();
   }
 
 }

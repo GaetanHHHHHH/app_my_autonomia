@@ -8,6 +8,7 @@ import { Actualite } from "../models/actualite.model";
 export class ActualitesService {
     actualites: Actualite[] =[
         {
+            id: 1,
           titre:"Un premier article modifié sur la DB", 
           titre2:"Espérons qu'il s'ajoute correctement!", 
           texte:"De grandes aventures nous attendent encore.", 
@@ -18,6 +19,7 @@ export class ActualitesService {
           lien:"https://www.autonomia.org/projet/validisme"
         },
         {
+            id: 2,
           titre:"J'ai un copain handicapé, ça change quoi ?", 
           titre2:"Avoir un copain handicapé, ça veut dire quoi ?", 
           texte:"Ça veut dire quoi physiquement, pourquoi il est malade et pas moi ?, Qu'est-ce qui se passe dans son corps ? Et ça veut dire quoi dans la vie de tous les jours ?", 
@@ -27,5 +29,25 @@ export class ActualitesService {
           likes:0
         }
       ];
+
+
+    getAllActualites(): Actualite[] {
+        return this.actualites;
+    }
+
+    getActualiteById(actualiteId: number): Actualite {
+        const actualite = this.actualites.find(actualite => actualite.id === actualiteId);
+        if(!actualite) {
+            throw new Error('Actualite not found');
+        } else {
+            return actualite;
+        }
+
+    }
+
+    likeActualiteById(actualiteId: number, actualiteType: "like" | "unlike"): void {
+        const actualite = this.getActualiteById(actualiteId);
+        actualiteType === "like" ? actualite.likes++ : actualite.likes-- ;
+    }
 
 }

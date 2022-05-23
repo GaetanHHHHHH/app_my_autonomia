@@ -1,4 +1,5 @@
 export class Actualite {
+    id!: number;
     titre!: string;
     titre2!: string;
     texte!: string;
