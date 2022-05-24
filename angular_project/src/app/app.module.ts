@@ -7,6 +7,7 @@ import { ActualitesListComponent } from './actualites-list/actualites-list.compo
 import { HeaderComponent } from './header/header.component';
 import { AppRoutingModule } from './app-routing.module';
 import { LandingPageComponent } from './landing-page/landing-page.component';
+import { SingleActualiteComponent } from './single-actualite/single-actualite.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
     ActualiteComponent,
     ActualitesListComponent,
     HeaderComponent,
-    LandingPageComponent
+    LandingPageComponent,
+    SingleActualiteComponent
   ],
   imports: [
     BrowserModule,
