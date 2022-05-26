@@ -10,6 +10,7 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
 import { SingleActualiteComponent } from './single-actualite/single-actualite.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NewActualiteComponent } from './new-actualite/new-actualite.component';
+import { HttpClientModule } from '@angular/common/http'
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { NewActualiteComponent } from './new-actualite/new-actualite.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

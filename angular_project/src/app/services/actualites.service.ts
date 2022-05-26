@@ -1,11 +1,16 @@
+import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Actualite } from "../models/actualite.model";
+import { Observable } from "rxjs";
 
 @Injectable({
     providedIn: 'root'
 })
 
 export class ActualitesService {
+
+    constructor(private http: HttpClient) {}
+
     actualites: Actualite[] =[
         {
             id: 1,
@@ -31,8 +36,8 @@ export class ActualitesService {
       ];
 
 
-    getAllActualites(): Actualite[] {
-        return this.actualites;
+    getAllActualites(): Observable<Actualite[]> {
+        return this.http.get<Actualite[]>('http://localhost:8080/api/actualites');
     }
 
     getActualiteById(actualiteId: number): Actualite {

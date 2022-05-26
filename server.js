@@ -3,9 +3,11 @@ var express = require('express');
 var bodyParser = require('body-parser');
 const { sequelize } = require('./api/models');
 const path = require('path');
+var cors = require('cors');
 
 // Instantiate server 
 var server = express();
+server.use(cors());
 
 // Test
 sequelize.authenticate()

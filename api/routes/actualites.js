@@ -19,6 +19,8 @@ router.get('/', (req, res) =>
                         id_users: data.id_users,
                         date_publication: data.date_publication,
                         titre: data.titre,
+                        titre2: data.titre2,
+                        vignette: data.vignette
                     }
                 })
             }
