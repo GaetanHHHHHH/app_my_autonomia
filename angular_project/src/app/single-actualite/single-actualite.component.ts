@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Actualite } from '../models/actualite.model';
 import { ActualitesService } from '../services/actualites.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-single-actualite',
@@ -11,6 +12,7 @@ import { ActualitesService } from '../services/actualites.service';
 export class SingleActualiteComponent implements OnInit {
 
   actualite!: Actualite;
+  actualite$!: Observable<Actualite>;
   textButton!: string;
 
   constructor(private actualitesService: ActualitesService, private route: ActivatedRoute) {}
@@ -18,7 +20,7 @@ export class SingleActualiteComponent implements OnInit {
   ngOnInit() {
     this.textButton = "Enregistrer cette actualité";
     const actualiteId = +this.route.snapshot.params['id'];
-    this.actualite = this.actualitesService.getActualiteById(actualiteId);
+    this.actualite$ = this.actualitesService.getActualiteById(actualiteId);
   }
 
   onLike() {

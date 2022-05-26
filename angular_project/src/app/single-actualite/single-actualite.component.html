@@ -1,4 +1,4 @@
-<div class="face-snap-card">
+<div class="face-snap-card" *ngIf="actualite$ | async as actualite" >
     <button routerLink="/actualites">Retour</button>
     <h2>{{ actualite.titre }}</h2>
     <h3>{{ actualite.titre2 }}</h3>

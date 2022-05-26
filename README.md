@@ -1,5 +1,5 @@
 # app_my_autonomia
-Création d'un prototype de PWA pour l'application My Autonomia en node.js et Angular.
+Création d'un prototype de PWA pour l'application My Autonomia en node.js et Angular. L'architecture du front-end est en smart/dumb, ou container/presenter.
 
 Bibliographie :
 [1] M:N associations (Sequelize) : https://sequelize.org/docs/v6/advanced-association-concepts/advanced-many-to-many/
