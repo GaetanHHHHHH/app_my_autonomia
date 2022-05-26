@@ -8,6 +8,8 @@ import { HeaderComponent } from './header/header.component';
 import { AppRoutingModule } from './app-routing.module';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { SingleActualiteComponent } from './single-actualite/single-actualite.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NewActualiteComponent } from './new-actualite/new-actualite.component';
 
 @NgModule({
   declarations: [
@@ -16,11 +18,14 @@ import { SingleActualiteComponent } from './single-actualite/single-actualite.co
     ActualitesListComponent,
     HeaderComponent,
     LandingPageComponent,
-    SingleActualiteComponent
+    SingleActualiteComponent,
+    NewActualiteComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
