@@ -50,4 +50,15 @@ export class ActualitesService {
         actualiteType === "like" ? actualite.likes++ : actualite.likes-- ;
     }
 
+    addActualite(formValue: { titre: string, titre2: string, texte: string, date_publication: Date, 
+        id_users: number, vignette: string, lien?: string}): void {
+            const actualite: Actualite = {
+                ...formValue,
+                date_publication: new Date(),
+                likes: 0,
+                id: this.actualites[this.actualites.length-1].id + 1
+            };
+        this.actualites.push(actualite);
+        }
+
 }

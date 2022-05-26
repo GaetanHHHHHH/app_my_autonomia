@@ -26,7 +26,7 @@
             <input type="text" id="lien" formControlName="lien">
         </div>
         <div class="action-buttons"></div>
-            <button type="submit" (click)="onSubmitForm()">Sauvegarder</button>
+            <button type="submit" (click)="onSubmitForm()" [disabled]="actualiteForm.invalid">Sauvegarder</button>
     </form>
 </div>
 <div class="actualite-card" *ngIf="actualitePreview$ | async as actualite">
