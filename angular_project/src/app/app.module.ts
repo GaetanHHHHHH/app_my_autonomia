@@ -10,7 +10,8 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
 import { SingleActualiteComponent } from './single-actualite/single-actualite.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NewActualiteComponent } from './new-actualite/new-actualite.component';
-import { HttpClientModule } from '@angular/common/http'
+import { HttpClientModule } from '@angular/common/http';
+import { ChangeActualiteComponent } from './change-actualite/change-actualite.component'
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { HttpClientModule } from '@angular/common/http'
     HeaderComponent,
     LandingPageComponent,
     SingleActualiteComponent,
-    NewActualiteComponent
+    NewActualiteComponent,
+    ChangeActualiteComponent
   ],
   imports: [
     BrowserModule,

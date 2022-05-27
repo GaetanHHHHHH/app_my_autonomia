@@ -18,15 +18,15 @@ export class ActualiteComponent implements OnInit {
     this.textButton = "Enregistrer cette actualité"
   }
 
-  onLike() {
-    if (this.textButton === 'Enregistrer cette actualité') {
-      this.actualitesService.likeActualiteById(this.actualite.id, 'like');
-      this.textButton = 'Ne plus enregistrer cette actualité';
-    } else {
-      this.actualitesService.likeActualiteById(this.actualite.id, 'unlike');
-      this.textButton = 'Enregistrer cette actualité';
-    }
-  }
+  // onLike() {
+  //   if (this.textButton === 'Enregistrer cette actualité') {
+  //     this.actualitesService.likeActualiteById(this.actualite.id, 'like');
+  //     this.textButton = 'Ne plus enregistrer cette actualité';
+  //   } else {
+  //     this.actualitesService.likeActualiteById(this.actualite.id, 'unlike');
+  //     this.textButton = 'Enregistrer cette actualité';
+  //   }
+  // }
 
   onViewActualite() {
     this.router.navigateByUrl(`actualites/${this.actualite.id}`);

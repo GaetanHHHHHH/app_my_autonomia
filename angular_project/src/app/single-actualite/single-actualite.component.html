@@ -9,8 +9,7 @@
         <a href="{{actualite.lien}}">Informations supplémentaires</a>
          </p>
     <p>
-        <button (click)="onLike()"> {{ textButton }} </button>
-        <span [ngStyle]="{ color: 'rgb(0,' + actualite.likes + ', 0)'}"> {{actualite.likes}} </span>
+        <button (click)="onChangeActualite(actualite.id)"> Modifier l'actualité </button>
     </p>
 </div>
 
