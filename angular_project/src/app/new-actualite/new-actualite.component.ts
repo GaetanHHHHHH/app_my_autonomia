@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Observable, map } from 'rxjs';
+import { Observable, map, tap } from 'rxjs';
 import { Actualite } from '../models/actualite.model';
 import { ActualitesService } from '../services/actualites.service';
 
@@ -43,8 +43,9 @@ export class NewActualiteComponent implements OnInit {
   }
 
   onSubmitForm(): void {
-    this.ActualitesService.addActualite(this.actualiteForm.value);
-    this.router.navigateByUrl('/actualites');
+    this.ActualitesService.addActualite(this.actualiteForm.value).pipe(
+      tap(() => this.router.navigateByUrl('/actualites'))
+    ).subscribe();
   }
 
 }

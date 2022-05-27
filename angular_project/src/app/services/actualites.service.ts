@@ -1,7 +1,7 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Actualite } from "../models/actualite.model";
-import { Observable } from "rxjs";
+import { map, Observable, switchMap } from "rxjs";
 
 @Injectable({
     providedIn: 'root'
@@ -41,14 +41,20 @@ export class ActualitesService {
     }
 
     addActualite(formValue: { titre: string, titre2: string, texte: string, date_publication: Date, 
-        id_users: number, vignette: string, lien?: string}): void {
-            const actualite: Actualite = {
-                ...formValue,
-                date_publication: new Date(),
-                likes: 0,
-                id: this.actualites[this.actualites.length-1].id + 1
-            };
-        this.actualites.push(actualite);
+        id_users: number, vignette: string, lien?: string}): Observable<Actualite> {
+
+            return this.getAllActualites().pipe(
+                map(actualites => [...actualites].sort((a: Actualite, b: Actualite) => a.id - b.id)),
+                map(sortedActualites => sortedActualites[sortedActualites.length - 1]),
+                map(previousActualite => ({
+                    ...formValue,
+                    likes:0,
+                    date_publication: new Date(),
+                    id: previousActualite.id + 1
+                })),
+                switchMap(newActualite => this.http.post<Actualite>('http://localhost:8080/api/actualites', newActualite))
+            )
         }
+
 
 }
