@@ -33,11 +33,11 @@ router.get('/', (req, res) =>
 
 // POST /actualites : Ajoute une nouvelle actualité
 router.post('/',(req, res) => {
-    let {id_users, date_publication, titre, titre2, texte, vignette, lien} = req.body;
+    let {id_users, titre, titre2, texte, vignette, lien} = req.body;
     let errors = [];
+    let date_publication = new Date()
     // validate fields
     if(!id_users){errors.push({text: "No user's id"})};
-    if(!date_publication){errors.push({text: "No publication date"})};
     if(!titre){errors.push({text: "No title"})};
     if(!titre2){errors.push({text: "No second title"})};
     if(!texte){errors.push({text: "No text"})};
@@ -48,12 +48,12 @@ router.post('/',(req, res) => {
         //insert into table
         actualite.create({
             id_users,
-            date_publication,
             titre,
             titre2,
             texte,
             vignette,
-            lien
+            lien,
+            date_publication
         })
             .then(actu =>{
                 res.setHeader('Content-Type', 'application/json');

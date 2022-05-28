@@ -11,11 +11,13 @@ import { ActualitesService } from '../services/actualites.service';
 export class ActualiteComponent implements OnInit {
   @Input() actualite!: Actualite;
   textButton!: string;
+  actualites: Actualite[] = []
 
   constructor(private actualitesService: ActualitesService, private router: Router) {}
 
   ngOnInit() {
-    this.textButton = "Enregistrer cette actualité"
+    this.textButton = "Enregistrer cette actualité";
+    this.fetchActualites();
   }
 
   // onLike() {
@@ -32,5 +34,25 @@ export class ActualiteComponent implements OnInit {
     this.router.navigateByUrl(`actualites/${this.actualite.id}`);
   }
 
+  onDeleteActualite(id:number) {
+    this.actualitesService.deleteActualite(this.actualite.id).subscribe(res => {
+      this.actualites = this.actualites.filter(item => item.id !== id);
+      console.log('Post deleted successfully!');
+ })
+    
+  //   (newData => {
+  //     console.log('Post deleted successfully!')});
+  // this.router.navigateByUrl('/DummyComponent', {skipLocationChange: true}).then(
+  //   () => this.router.navigate(['actualites']));
+  }
+
+  fetchActualites() {
+    this.actualitesService.getAllActualites().subscribe(
+      (resp) => { 
+        console.log(resp)
+        this.actualites = resp;
+      }
+    )
+  }
 
 }

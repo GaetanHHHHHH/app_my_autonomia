@@ -5,5 +5,6 @@
     <img [src] = "actualite.vignette" [alt] = "actualite.titre">
     <p>Mis en ligne le : {{ actualite.date_publication }} par l'utilisateur numéro : {{actualite.id_users}}</p>
     <button (click)="onViewActualite()">Lire l'actualité</button>
+    <button class="deleteBtn" (click)="onDeleteActualite(actualite.id)">Supprimer l'actualité</button>
 </div>
 
