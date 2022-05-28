@@ -1,2 +1,7 @@
-<h2>Liste des actualites</h2>
+<div class="container">
+<div class="box-onglet">
+    <h2>Actualités</h2>
+    <button (click)="onAddNewActualite()">Ajouter une actualité</button>
+</div>
+</div>
 <app-actualite *ngFor="let actuInArray of actualites$ | async" [actualite]="actuInArray"></app-actualite>

@@ -1,0 +1,27 @@
+* {
+    margin: 0;
+  }
+  
+  .box-onglet {
+    width: 50%;
+    display: flex;
+    justify-content: space-between;
+    background: #f6f6f6;
+    padding: 1rem;
+    margin-left: 20px;
+  }
+
+  .container {
+    display: flex;
+    justify-content: center;
+  }
+  
+  h2 {
+    color: #147495;
+  }
+  
+  button {
+    background: #e12353;
+    color: white;
+    border-radius: 10px;
+  }

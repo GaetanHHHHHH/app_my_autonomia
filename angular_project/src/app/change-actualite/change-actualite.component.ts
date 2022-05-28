@@ -12,7 +12,7 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./change-actualite.component.scss']
 })
 export class ChangeActualiteComponent implements OnInit {
-  @Input() actualite!: Actualite;
+  //@Input() actualite!: Actualite;
   actualiteForm!: FormGroup;
   actualitePreview$!: Observable<Actualite>;
   actualite$!: Observable<Actualite>;
