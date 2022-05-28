@@ -1,0 +1,38 @@
+<div class="form-card">
+    <h2>Nouvelle actualité</h2>
+    <form [formGroup]="actualiteForm">
+        <div class="form-group">
+            <label for="id_users">ID du créateur</label>
+            <input type="number" id="id_users" formControlName="id_users">
+        </div>
+        <div class="form-group">
+            <label for="titre">Titre</label>
+            <input type="text" id="titre" formControlName="titre">
+        </div>
+        <div class="form-group">
+            <label for="titre2">Sous-titre</label>
+            <input type="text" id="titre2" formControlName="titre2">
+        </div>
+        <div class="form-group">
+            <label for="texte">Texte</label>
+            <textarea type="text" id="texte" formControlName="texte" rows="4"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="vignette">Adresse de l'image</label>
+            <input type="text" id="vignette" formControlName="vignette">
+        </div>
+        <div class="form-group">
+            <label for="lien">Lien complémentaire</label>
+            <input type="text" id="lien" formControlName="lien">
+        </div>
+        <div class="action-buttons"></div>
+            <button type="submit" (click)="onSubmitForm()" [disabled]="actualiteForm.invalid">Sauvegarder</button>
+    </form>
+</div>
+<div class="actualite-card" *ngIf="actualitePreview$ | async as actualite">
+    <h2>{{ actualite.titre | uppercase }}</h2>
+    <p>Mis en ligne {{ actualite.date_publication | date: 'à HH:mm, le d MMMM yyyy' }}</p>
+    <img [src]="actualite.vignette" [alt]="actualite.titre">
+    <p>{{ actualite.titre2 }}</p>
+    <p *ngIf="actualite.lien">Pour plus d'information : {{ actualite.lien }}</p>
+</div>

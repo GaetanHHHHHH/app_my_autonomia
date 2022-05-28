@@ -19,6 +19,8 @@ router.get('/', (req, res) =>
                         id_users: data.id_users,
                         date_publication: data.date_publication,
                         titre: data.titre,
+                        titre2: data.titre2,
+                        vignette: data.vignette
                     }
                 })
             }
@@ -31,7 +33,7 @@ router.get('/', (req, res) =>
 
 // POST /actualites : Ajoute une nouvelle actualité
 router.post('/',(req, res) => {
-    let {id_users, date_publication, titre, titre2, texte} = req.body;
+    let {id_users, date_publication, titre, titre2, texte, vignette, lien} = req.body;
     let errors = [];
     // validate fields
     if(!id_users){errors.push({text: "No user's id"})};
@@ -49,7 +51,9 @@ router.post('/',(req, res) => {
             date_publication,
             titre,
             titre2,
-            texte
+            texte,
+            vignette,
+            lien
         })
             .then(actu =>{
                 res.setHeader('Content-Type', 'application/json');

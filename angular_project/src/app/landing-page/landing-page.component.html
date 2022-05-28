@@ -1,0 +1,11 @@
+<div class="landing-block">
+  <form #emailForm="ngForm" (ngSubmit)="onSubmitForm(emailForm)">
+    <label for="emailInput">Inscrivez-vous pour recevoir notre newletter -> </label>
+    <input type="email" id="emailInput" [(ngModel)]="userEmail" name="userEmail">
+    <button type="submit">Valider</button>
+  </form>
+  <img src="assets/logoauto.jpg" alt="Autonomia logo">
+  <div class="landing-links">
+      <button (click)="onContinue()">Continuer vers My Autonomia</button>
+   </div>
+  </div>

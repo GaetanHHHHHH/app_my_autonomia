@@ -1,0 +1,15 @@
+<div class="face-snap-card" *ngIf="actualite$ | async as actualite" >
+    <button routerLink="/actualites">Retour</button>
+    <h2>{{ actualite.titre }}</h2>
+    <h3>{{ actualite.titre2 }}</h3>
+    <img [src] = "actualite.vignette" [alt] = "actualite.titre">
+    <p>Mis en ligne le : {{ actualite.date_publication }} par l'utilisateur numéro : {{actualite.id_users}}</p>
+    <p>{{ actualite.texte }}</p>
+    <p *ngIf="actualite.lien">
+        <a href="{{actualite.lien}}">Informations supplémentaires</a>
+         </p>
+    <p>
+        <button (click)="onChangeActualite(actualite.id)"> Modifier l'actualité </button>
+    </p>
+</div>
+
